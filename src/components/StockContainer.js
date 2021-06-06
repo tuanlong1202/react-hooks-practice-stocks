@@ -1,11 +1,16 @@
 import React from "react";
 import Stock from "./Stock";
 
-function StockContainer() {
+function StockContainer({list, onAddToPortfolio}) {
+  const listToDisplay = list.map((item,index)=>{
+    return (
+      <Stock key={index} stock={item} clickToPortfolio={onAddToPortfolio} isStock={true} />
+    )
+  })
   return (
     <div>
       <h2>Stocks</h2>
-      {/* render stock list here*/}
+      {listToDisplay/* render stock list here*/}
     </div>
   );
 }
